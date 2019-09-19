@@ -2,7 +2,7 @@ const Employee = require("./Employee");
 
 class Receptionist extends Employee {
 
-        constructor(position, name, id, salary){
+        constructor(position = `Receptionist`, name, id, salary = 50000){
             super(position, name, id, salary)
 
             this.isOnPhone = false;
