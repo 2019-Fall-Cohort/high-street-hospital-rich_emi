@@ -1,0 +1,27 @@
+{
+  "name": "high-street-hospital",
+  "version": "1.0.0",
+  "description": "File Organization System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeCanCodeIT/high-street-hospital-git-down-with-the-sickness.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WeCanCodeIT/high-street-hospital-git-down-with-the-sickness/issues"
+  },
+  "homepage": "https://github.com/WeCanCodeIT/high-street-hospital-git-down-with-the-sickness#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "readline-sync": "^1.4.10"
+  }
+}
