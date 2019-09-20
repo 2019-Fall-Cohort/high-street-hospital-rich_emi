@@ -11,6 +11,15 @@ class Patient {
 
     }
 
+    bloodDrawn() {
+        if(this.bloodLevel >= 10){ 
+            this.bloodLevel = this.bloodLevel - 10;
+            } else {
+                console.log("Patient requires more time from previous sessions.")
+                }  
+        }
+
+    
 
     tick() {
 
