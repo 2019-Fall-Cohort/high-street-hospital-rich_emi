@@ -11,11 +11,14 @@ class Janitor extends Employee {
         startSweeping() {
                 
                 this.isSweeping = true;
+                console.log(`${this.name} has started sweeping.`)
         } 
         
         stopSweeping() {
 
                 this.isSweeping = false;
+                console.log(`${this.name} has stopped sweeping.`)
+               
         }
         
 
