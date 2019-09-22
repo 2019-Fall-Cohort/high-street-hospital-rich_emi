@@ -8,5 +8,5 @@ class Employee {
         this.id = id;
         this.salary = salary;
     }
-
+}
 module.exports = Employee;
