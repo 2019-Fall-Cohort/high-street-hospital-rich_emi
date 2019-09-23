@@ -32,14 +32,11 @@ describe("Janitor", () => {
     
 })
 describe("drawBlood method", () => {
-    test("drawBlood method depletes blood of selected patient.", () => {
+    test("drawBlood method depletes blood of selected patient", () => {
         
         const testVJanitor = new VampireJanitor();
         const testPatient = new Patient();
         
-    
-
-
         testVJanitor.drawBlood(testPatient);
 
         console.log(testPatient);
@@ -47,7 +44,22 @@ describe("drawBlood method", () => {
         expect(testPatient.bloodLevel).not.toEqual(testPatient.maxBloodLevel);
 
         }) 
+    test("drawBlood method won't draw blood if levels are too low", () => {
 
+        const testVJanitor = new VampireJanitor();
+        const testPatient = new Patient();
+        
+        testVJanitor.drawBlood(testPatient);
+
+        let bloodLevelBeforeFailure = testPatient.bloodLevel;
+
+        testVJanitor.drawBlood(testPatient);
+
+        console.log(testPatient);
+        
+        expect(testPatient.bloodLevel).toEqual(bloodLevelBeforeFailure);
+
+    })
         
     })
 })
