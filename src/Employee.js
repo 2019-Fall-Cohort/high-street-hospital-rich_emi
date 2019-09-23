@@ -1,11 +1,11 @@
 class Employee {
-    constructor (position, name, id, salary) {
-        if (this.constructor == Employee) {
-            throw new Error ("Employee is an abstract class.")
+    constructor (position, name = 'Jessica', iDNumber = 'E666', salary) {
+        if (this.constructor === Employee) {
+            throw new Error ("Employee is an abstract class. Please provide a subclass instead.")
         }
         this.position = position;
         this.name = name;
-        this.id = id;
+        this.iDNumber = iDNumber;
         this.salary = salary;
     }
 }

@@ -46,16 +46,16 @@ describe("Patient Class", () => {
     
     })
     describe("receiveCare method", () => {
-        test("receiveCare increases health level. Doesn't go above max value.", () => {
+        test("receiveCare increases patient health level to max value", () => {
             const testPatient = new Patient();
+            const healthLevel = this.healthLevel;
+            const maxHealthLevel = this.maxHealthLevel;
 
-            testPatient.healthLevel = 7
-
-            testPatient.receiveCare();
+            testPatient.receiveCare(testPatient);
 
             console.log(testPatient);
 
-            expect(testPatient.healthLevel).toEqual(testPatient.maxHealthLevel);
+            expect(healthLevel).toBe(maxHealthLevel);
         
         })
     })

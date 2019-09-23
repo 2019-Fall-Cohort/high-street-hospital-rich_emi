@@ -2,8 +2,8 @@ const Employee = require("./Employee");
 
 class Receptionist extends Employee {
 
-        constructor(position = `Receptionist`, name, id, salary = `$50,000`){
-            super(position, name, id, salary)
+        constructor(position = `Receptionist`, name, iDNumber, salary = `$45,000`){
+            super(position, name, iDNumber, salary)
 
             this.isOnPhone = false;
         }
