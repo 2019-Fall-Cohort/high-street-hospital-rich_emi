@@ -58,16 +58,23 @@ while (gameRunning === true){
             console.log("Who would you like to start/stop sweeping?")
             console.log("-------------------------------------------------------")
             let selectJanitor = menuSelectFromJanitors();
-                if (HighStreetHospital.Janitors[selectJanitor].isSweeping === true){
-                    HighStreetHospital.Janitors[selectJanitor].stopSweeping();
-                }   else {
-                    HighStreetHospital.Janitors[selectJanitor].startSweeping();
+            console.log("-------------------------------------------------------")
+                if(HighStreetHospital.Janitors[selectJanitor] === typeof Janitor || typeof VampireJanitor){
+                    if (HighStreetHospital.Janitors[selectJanitor].isSweeping === true){
+                        HighStreetHospital.Janitors[selectJanitor].stopSweeping();
+                    }   else {
+                        HighStreetHospital.Janitors[selectJanitor].startSweeping();
+                    }
+                } else {
+                    console.log("Sorry, that wasn't an option.")
                 }
+            console.log("-------------------------------------------------------")
+    
+            break;
         case 4: 
             console.log("-------------------------------------------------------")
-            console.log(`High Street Hospital is at ${HighStreetHospital.cleanliness}%`)
+            console.log(`High Street Hospital is at ${HighStreetHospital.cleanliness}% Cleanliness`)
             console.log("-------------------------------------------------------")
-            
             break;
 
         default: console.log(`${mainMenuInput} is not an option.`)
@@ -105,14 +112,12 @@ function menuSelectFromJanitors(){
     })
 
     let inputSelectedJanitor = input.questionInt("");
-    if (inputSelectedJanitor > selectionCount) {
-        console.log("Sorry, that's not an option.")
-    }   else {
+    
             let selectedJanitor = inputSelectedJanitor - 1;
 
             return selectedJanitor;
         }
-}    
+  
 function menuSelectFromNurses(){
     let selectionCount = 0;
     console.log("Nurse Options:")

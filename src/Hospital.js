@@ -116,7 +116,7 @@ class Hospital {
     tick(tickAmount=1){
         let janitorsSweeping = this.countJanitorsSweeping();
         for(let counter = 0; counter < tickAmount; counter++){
-            this.cleanliness -= 4;
+            this.cleanliness -= 3;
             this.cleanliness += (janitorsSweeping * 4);
             if(this.cleanliness > 100){
                 this.cleanliness = 100;
