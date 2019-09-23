@@ -38,7 +38,14 @@ class Hospital {
         const Janitor2 = new VampireJanitor();
             Janitor2.name = "Pyro";
             Janitor2.id = "J002";
-        this.Janitors.push(Janitor1,Janitor2);
+        this.Janitors.push(Janitor1);
+        this.Janitors.push(Janitor2);
+
+        // Preset Nurse(s)
+        // const Nurse1 = new Nurse();
+        //     Receptionist1.name = "Gonda";
+        //     Receptionist1.id = "N001";
+        // this.Receptionists.push(Nurse1);
 
         // Preset Receptionist(s)
         const Receptionist1 = new Receptionist();
@@ -88,6 +95,11 @@ class Hospital {
         })
 
 
+    }
+    getJanitors() {
+        this.Janitors.forEach((Janitor) => {
+            console.log(`${Janitor.name} currently sweeping: ${Janitor.isSweeping}`)
+        })
     }
     getPatients() {
         this.Patients.forEach((Patient) => {

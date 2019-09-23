@@ -26,8 +26,8 @@ while (gameRunning === true){
     console.log("Select from the following options: (type only the number)")
     console.log("")
     console.log("1 )) List All Employees")
-    console.log("2 )) List Unassigned Patients")
-    console.log("3 )) ")
+    console.log("2 )) Assign Patient to a Nurse")
+    console.log("3 )) Set Janitor to start or stop sweeping")
     console.log("")
     console.log("")
     console.log("")
@@ -40,18 +40,36 @@ while (gameRunning === true){
             tick();
             break;
         case 2: HighStreetHospital.getPatients();
+            console.log("-------------------------------------------------------")
             console.log("Who would you like to assign to a Nurse?");
+            console.log("-------------------------------------------------------")
             menuSelectUnassignedPatient();
+            tick();
+            break;
+        case 3: HighStreetHospital.getJanitors();
+            console.log("-------------------------------------------------------")
+            console.log("Who would you like to start/stop sweeping?")
+            console.log("-------------------------------------------------------")
+            let selectJanitor = menuSelectFromJanitors();
+            console.log(selectJanitor);
+                if (HighStreetHospital.Janitors[selectJanitor].isSweeping === true){
+                    HighStreetHospital.Janitors[selectJanitor].stopSweeping();
+                }   else {
+                    HighStreetHospital.Janitors[selectJanitor].startSweeping();
+                }
+            console.log(HighStreetHospital.Janitors);    
 
             tick();
             break;
+
         default: console.log(`${mainMenuInput} is not an option.`)
             break;
+    }    
         console.log("")
         console.log("")
         console.log("")
         console.log("")
-    }
+    
 
 
 
@@ -64,21 +82,53 @@ function menuSelectUnassignedPatient(){
         console.log(`${selectionCount + 1} )) ${Patient.name}`)
         selectionCount++;
     })
-        console.log(`${selectionCount + 1} )) **Cancel`)
 
     let subMenuInput = input.questionInt() - 1;
     let selectedUnassignedPatient = HighStreetHospital.Patients[subMenuInput];
 
-    
+    let selectedNurse = menuSelectFromNurses();
+
+    if(selectedNurse > 0){
+        selectedNurse.push(selectedUnassignedPatient);
+    } else {
+        console.log("Sorry, that's not an option.")
+    }
 }
+function menuSelectFromJanitors(){
+    let selectionCount = 0;
+    console.log("Janitor Options:")
+    HighStreetHospital.Janitors.forEach((Janitor) => {
+        console.log(`${selectionCount + 1} )) ${Janitor.name}`)
+        selectionCount++;
+    })
+
+    let inputSelectedJanitor = input.questionInt("");
+    if (inputSelectedJanitor > selectionCount) {
+        console.log("Sorry, that's not an option.")
+    }   else {
+            let selectedJanitor = inputSelectedJanitor - 1;
+
+            return selectedJanitor;
+        }
+}    
 function menuSelectFromNurses(){
     let selectionCount = 0;
-  
+    console.log("Nurse Options:")
     HighStreetHospital.Nurses.forEach((Nurse) => {
         console.log(`${selectionCount + 1} )) ${Nurse.name}`)
         selectionCount++;
     })
-        console.log(`${selectionCount + 1} )) **Cancel`)
+
+    let inputSelectedNurse = input.questionInt("");
+    if(inputSelectedNurse > selectionCount){
+                
+        }else {
+            let selectedNurse = HighStreetHospital.Nurses[inputSelectedNurse - 1];
+
+            return selectedNurse;
+        }
+            return 0;
+        
 }
 
 function tick(tickAmount){
