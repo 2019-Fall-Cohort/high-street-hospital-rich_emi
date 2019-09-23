@@ -1,7 +1,7 @@
 const VampireJanitor = require("./VampireJanitor");
 const Patient = require("./Patient");
 
-describe("Janitor", () => {
+describe("Vampire Janitor Class", () => {
     describe("startSweeping method" , () => {
         test("startSweeping method has object change isSweeping property to true", () => {
 
