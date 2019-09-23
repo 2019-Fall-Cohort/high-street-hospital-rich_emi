@@ -28,7 +28,7 @@ while (gameRunning === true){
     console.log("1 )) List All Employees")
     console.log("2 )) Assign Patient to a Nurse")
     console.log("3 )) Set Janitor to start or stop sweeping")
-    console.log("")
+    console.log("4 )) Check Hospital Cleanliness")
     console.log("")
     console.log("")
     console.log("")
@@ -40,16 +40,20 @@ while (gameRunning === true){
             console.log("")
             console.log("")
             HighStreetHospital.getAllEmployees();
-            tick();
+            
             break;
         case 2: HighStreetHospital.getPatients();
+            console.log("")
+            console.log("")
             console.log("-------------------------------------------------------")
             console.log("Who would you like to assign to a Nurse?");
             console.log("-------------------------------------------------------")
             menuSelectUnassignedPatient();
-            tick();
+            
             break;
         case 3: HighStreetHospital.getJanitors();
+            console.log("")
+            console.log("")
             console.log("-------------------------------------------------------")
             console.log("Who would you like to start/stop sweeping?")
             console.log("-------------------------------------------------------")
@@ -59,16 +63,18 @@ while (gameRunning === true){
                 }   else {
                     HighStreetHospital.Janitors[selectJanitor].startSweeping();
                 }
-
-            tick();
+        case 4: 
+            console.log("-------------------------------------------------------")
+            console.log(`High Street Hospital is at ${HighStreetHospital.cleanliness}%`)
+            console.log("-------------------------------------------------------")
+            
             break;
 
         default: console.log(`${mainMenuInput} is not an option.`)
             break;
     }    
-    console.log("")
-    console.log("")
     
+    tick();
 }
 
 function menuSelectUnassignedPatient(){
