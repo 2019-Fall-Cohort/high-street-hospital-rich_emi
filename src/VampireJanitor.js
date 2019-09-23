@@ -2,7 +2,7 @@ const Janitor = require("./Janitor")
 
 class VampireJanitor extends Janitor {
 
-    constructor(position = `Vampire Janitor`, name, id, salary = 40000, isSweeping = false,){
+    constructor(position = `Vampire Janitor`, name, id, salary = `$40000`, isSweeping = false,){
         super(position, name, id, salary, isSweeping)
             this.canDrawBlood = true;
 
