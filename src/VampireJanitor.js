@@ -8,7 +8,7 @@ class VampireJanitor extends Janitor {
 
     }
 
-    drawBlood(selectedPatient, ){
+    drawBlood(selectedPatient){
         selectedPatient.bloodDrawn(this.position);
     }
     startSweeping(){
