@@ -1,7 +1,7 @@
 const VampireJanitor = require("./VampireJanitor");
 const Patient = require("./Patient");
 
-describe("Janitor", () => {
+describe("Vampire Janitor Class", () => {
     describe("startSweeping method" , () => {
         test("startSweeping method has object change isSweeping property to true", () => {
 
@@ -14,6 +14,7 @@ describe("Janitor", () => {
             expect(testVJanitor.isSweeping).toEqual(true);
 
         })
+    })        
     describe("stopSweeping method" , () => {
         test("stopSweeping method has object change isSweeping property to false", () => {
          
@@ -26,28 +27,37 @@ describe("Janitor", () => {
             
             expect(testVJanitor.isSweeping).toEqual(false);
             
-        })
-        
+        })        
     })    
-    
-})
-describe("drawBlood method", () => {
-    test("drawBlood method depletes blood of selected patient.", () => {
-        
-        const testVJanitor = new VampireJanitor();
-        const testPatient = new Patient();
-        
-    
+    describe("drawBlood method", () => {
+        test("drawBlood method depletes blood of selected patient. Also depletes health.", () => {
+            
+            const testVJanitor = new VampireJanitor();
+            const testPatient = new Patient();
+            
+            testVJanitor.drawBlood(testPatient);
 
+            console.log(testPatient);
+            
+            expect(testPatient.bloodLevel).not.toEqual(testPatient.maxBloodLevel);
+            expect(testPatient.healthLevel).not.toEqual(testPatient.maxHealthLevel);
 
-        testVJanitor.drawBlood(testPatient);
+            }) 
+        test("drawBlood method won't draw blood if levels are too low", () => {
 
-        console.log(testPatient);
-        
-        expect(testPatient.bloodLevel).not.toEqual(testPatient.maxBloodLevel);
+            const testVJanitor = new VampireJanitor();
+            const testPatient = new Patient();
+            
+            testVJanitor.drawBlood(testPatient);
 
-        }) 
+            let bloodLevelBeforeFailure = testPatient.bloodLevel;
 
-        
+            testVJanitor.drawBlood(testPatient);
+
+            console.log(testPatient);
+            
+            expect(testPatient.bloodLevel).toEqual(bloodLevelBeforeFailure);
+
+        })      
     })
-})
+})    
