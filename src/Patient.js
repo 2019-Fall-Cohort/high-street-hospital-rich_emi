@@ -15,15 +15,36 @@ class Patient {
 
     }
 
-    bloodDrawn() {
+    bloodDrawn(bloodDrawer) {
         if(this.bloodLevel > this.maxBloodLevel/2){ 
-            let startingBlood = this.bloodLevel;
+            let startingBloodLevel = this.bloodLevel;
             this.bloodLevel -= 10;
-            console.log(`Patient ${this.name}'s blood level went from ${startingBlood} to ${this.bloodLevel}.`) }
-             else {
+            console.log(`Patient ${this.name}'s blood level went from ${startingBloodLevel} to ${this.bloodLevel}.`) 
+            if(bloodDrawer = "Vampire Janitor"){
+                this.healthLevel -= 3;
+                if (this.healthLevel < 0)  {
+                    this.healthLevel = 0;
+                }
+                console.log(`Patient ${this.name} is feeling a little more sick.`);
+            }    
+            else {
                 console.log(`Patient ${this.name} requires more time from previous sessions.`) }
-                  
+            }      
         }
+        
+
+    receiveCare() {
+        if(this.healthLevel = this.maxHealthLevel){
+            console.log(`Patient ${this.name}'s health value is already at 10`)
+        }
+            this.healthLevel += 5;
+                if(this.healthLevel > this.maxHealthLevel){
+                    this.healthLevel = this.maxHealthLevel;
+                }
+
+
+
+    }    
 
     tick(tickAmount=1) {
         for(let counter = 0; counter < tickAmount; counter++){
@@ -34,8 +55,8 @@ class Patient {
                 
             if (this.healthLevel < this.maxHealthLevel / 2)  {  
                 this.healthLevel -= .25; 
-                if (this.healthLevel > this.maxHealthLevel)  {
-                    this.healthLevel = this.maxHealthLevel;
+                if (this.healthLevel < 0)  {
+                    this.healthLevel = 0;
                     }
                 }    
             //counter++;
