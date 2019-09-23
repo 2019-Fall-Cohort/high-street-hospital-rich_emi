@@ -109,7 +109,7 @@ class Hospital {
             console.log(`iDNumber: ${Receptionist.iDNumber} || ${Receptionist.position} ${Receptionist.name} || salary: ${Receptionist.salary} || on Phone: ${Receptionist.isOnPhone}`)
         })
         this.Nurses.forEach((Nurse) => {
-            console.log(`iDNumber: ${Nurse.iDNumber} || ${Nurse.position} ${Nurse.name} || salary: ${Nurse.salary} || patients: ${Nurse.getPatients()}`)
+            console.log(`iDNumber: ${Nurse.iDNumber} || ${Nurse.position} ${Nurse.name} || salary: ${Nurse.salary}`)
         })
         this.Surgeons.forEach((Surgeon) => {
             console.log(`iDNumber: ${Surgeon.iDNumber} || ${Surgeon.position} ${Surgeon.name} || salary: ${Surgeon.salary} || sweeping: ${Surgeon.isOperating}`)
