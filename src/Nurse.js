@@ -5,6 +5,10 @@ class Nurse extends Employee {
             super (position, name, iDNumber, salary)
         }
         
+        careForPatient(selectedPatient) {
+            selectedPatient.receiveCare(this.position);
+        }
+
         drawBlood(selectedPatient){
             selectedPatient.bloodDrawn(this.position);
         }

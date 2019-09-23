@@ -78,8 +78,6 @@ class Hospital {
 
         this.Patients.push(Patient1,Patient2,Patient3,Patient4,Patient5);
 
-
-
     }
 
 
@@ -107,9 +105,8 @@ class Hospital {
             console.log(`iDNumber: ${Nurse.iDNumber} || ${Nurse.position} ${Nurse.name} || salary: ${Nurse.salary} || patients: ${Nurse.getPatients()}`)
         })
         this.Surgeons.forEach((Surgeon) => {
-            console.log(`iDNumber: ${Surgeon.iDNumber} || ${Surgeon.position} ${Surgeon.name} || salary: ${Surgeon.salary} || sweeping: ${Surgeon.isInSurgery}`)
+            console.log(`iDNumber: ${Surgeon.iDNumber} || ${Surgeon.position} ${Surgeon.name} || salary: ${Surgeon.salary} || sweeping: ${Surgeon.isOperating}`)
         })
-
 
     }
     tick(tickAmount=1){

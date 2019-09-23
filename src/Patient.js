@@ -34,17 +34,15 @@ class Patient {
         
 
     receiveCare() {
-        if(this.healthLevel = this.maxHealthLevel){
-            console.log(`Patient ${this.name}'s health value is already at 10`)
+        if(this.healthLevel = this.maxHealthLevel) {
+            console.log(`Patient ${this.name}'s health value is already at max.`);
         }
-            this.healthLevel += 5;
-                if(this.healthLevel > this.maxHealthLevel){
-                    this.healthLevel = this.maxHealthLevel;
-                }
-
-
-
-    }    
+        else {this.healthLevel += 11};
+            if(this.healthLevel > this.maxHealthLevel) {
+                this.healthLevel = this.maxHealthLevel;
+            }
+            console.log(`Patient ${this.name} is feeling a bit better.`)
+    };
 
     tick(tickAmount=1) {
         for(let counter = 0; counter < tickAmount; counter++){

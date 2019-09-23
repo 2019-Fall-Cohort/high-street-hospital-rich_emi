@@ -22,8 +22,8 @@ describe("Hospital Class", () => {
 
             expect(janitorsSweepingCount).toEqual(2);
 
-        })
-    })
+        });
+    });
     describe("tickMethod", () => {
         test("Tick method applies and counts for Janitors Sweeping", () => {
 
@@ -44,7 +44,6 @@ describe("Hospital Class", () => {
             console.log(testHospital);
 
             expect(testHospital.cleanliness).toEqual(startingCleanliness + 12);
-
-        })
-    })
-})    
+        });
+    });
+});
