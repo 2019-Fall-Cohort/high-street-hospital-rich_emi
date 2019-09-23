@@ -2,8 +2,8 @@ const Employee = require("./Employee");
 
 class Janitor extends Employee {
 
-        constructor(position = `Janitor`, name, id, salary = `$40,000`){
-            super(position, name, id, salary)
+        constructor(position = `Janitor`, name, iDNumber, salary = `$40,000`){
+            super(position, name, iDNumber, salary)
 
             this.isSweeping = false;
         }
