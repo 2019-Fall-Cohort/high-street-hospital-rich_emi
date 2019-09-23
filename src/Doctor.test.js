@@ -1,12 +1,11 @@
 const Doctor = require('./Doctor');
 const Patient = require('./Patient');
+const testDoctor = new Doctor();
+const testPatient = new Patient();
 
 describe('Doctor class', () => {
     describe("drawBlood method", () => {
         test("drawBlood method depletes blood of selected patient. Also depletes health.", () => {
-            
-            const testDoctor = new Doctor();
-            const testPatient = new Patient();
             
             testDoctor.drawBlood(testPatient);
 
@@ -17,10 +16,7 @@ describe('Doctor class', () => {
 
             }) 
         test("drawBlood method won't draw blood if levels are too low", () => {
-
-            const testDoctor = new Doctor();
-            const testPatient = new Patient();
-            
+          
             testDoctor.drawBlood(testPatient);
 
             let bloodLevelBeforeFailure = testPatient.bloodLevel;
