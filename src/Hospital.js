@@ -89,6 +89,11 @@ class Hospital {
 
 
     }
+    getPatients() {
+        this.Patients.forEach((Patient) => {
+            console.log(`${Patient.name} || Health Level: ${Patient.healthLevel} || Blood Level: ${Patient.bloodLevel}`)
+        })
+    }
     tick(tickAmount=1){
         let janitorsSweeping = this.countJanitorsSweeping();
         for(let counter = 0; counter < tickAmount; counter++){
