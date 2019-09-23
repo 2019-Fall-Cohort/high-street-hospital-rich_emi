@@ -1,4 +1,4 @@
-const Doctor = require("./src/Doctor");
+//const Doctor = require("./src/Doctor");
 
 const Janitor = require("./Janitor");
 //const Nurse = require("./Nurse");
@@ -17,17 +17,19 @@ class Hospital {
         this.Nurses = [];
         this.Receptionists = [];
         this.Surgeons = [];
+
         this.Patients = [];
+
         this.cleanliness = MAX_CLEANLINESS;
     }
 
     startHospital() {
 
         // Preset Doctor(s)
-        const Doctor1 = new Doctor();
-            Doctor1.name = "Joshua";
-            Doctor1.id = "D001";
-        this.Doctors.push(Doctor1);    
+        // const Doctor1 = new Doctor();
+        //     Doctor1.name = "Joshua";
+        //     Doctor1.id = "D001";
+        // this.Doctors.push(Doctor1);    
 
         // Preset Janitor(s)
         const Janitor1 = new Janitor();
@@ -66,6 +68,26 @@ class Hospital {
             }       
         }) 
         return janitorsSweeping;   
+    }
+    getAllEmployees() {
+        console.log("Here is a list of all employees at High Street Hospital:")
+        this.Doctors.forEach((Doctor) => {
+            console.log(`ID: ${Doctor.id} || ${Doctor.position} ${Doctor.name} || salary: ${Doctor.salary}`)
+        })
+        this.Janitors.forEach((Janitor) => {
+            console.log(`ID: ${Janitor.id} || ${Janitor.position} ${Janitor.name} || salary: ${Janitor.salary} || sweeping: ${Janitor.isSweeping}`)
+        })
+        this.Receptionists.forEach((Receptionist) => {
+            console.log(`ID: ${Receptionist.id} || ${Receptionist.position} ${Receptionist.name} || salary: ${Receptionist.salary} || on Phone: ${Receptionist.isOnPhone}`)
+        })
+        this.Nurses.forEach((Nurse) => {
+            console.log(`ID: ${Nurse.id} || ${Nurse.position} ${Nurse.name} || salary: ${Nurse.salary} || patients: ${Nurse.getPatients()}`)
+        })
+        this.Surgeons.forEach((Surgeon) => {
+            console.log(`ID: ${Surgeon.id} || ${Surgeon.position} ${Surgeon.name} || salary: ${Surgeon.salary} || sweeping: ${Surgeon.isInSurgery}`)
+        })
+
+
     }
     tick(tickAmount=1){
         let janitorsSweeping = this.countJanitorsSweeping();
