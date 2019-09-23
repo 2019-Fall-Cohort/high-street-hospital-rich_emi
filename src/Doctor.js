@@ -5,6 +5,10 @@ class Doctor extends Employee {
             super (position, name, iDNumber, salary)
             this.specialty = specialty;
         }
+
+        drawBlood(selectedPatient){
+            selectedPatient.bloodDrawn(this.position);
+        }
 }
 
 module.exports = Doctor
