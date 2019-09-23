@@ -33,4 +33,18 @@ describe('Nurse class', () => {
 
         })      
     })
+    describe('careForPatient method', () => {
+        test('should increase healthLevel of selected patient to maxHealthLevel', () => {
+            
+            const testNurse = new Nurse();
+            const testPatient = new Patient();
+
+            testNurse.careForPatient(testPatient);
+
+            console.log(testPatient);
+
+            expect(testPatient.healthLevel).toEqual(testPatient.maxHealthLevel);
+            
+        });
+    });
 });

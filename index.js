@@ -99,7 +99,7 @@ function menuSelectUnassignedPatient(){
 
     if(selectedNurse > 0){
         selectedNurse.push(selectedUnassignedPatient);
-    } else {
+    } else 
         console.log("Sorry, that's not an option.")
     }
 }
