@@ -35,7 +35,7 @@ describe("Hospital Class", () => {
             testVampireJanitor.startSweeping();
 
             testHospital.cleanliness = 50;
-            let startingCleanliness = 50;
+            const startingCleanliness = 50;
             testHospital.Janitors.push(testJanitor);
             testHospital.Janitors.push(testVampireJanitor);
 
@@ -43,7 +43,7 @@ describe("Hospital Class", () => {
 
             console.log(testHospital);
 
-            expect(testHospital.cleanliness).toEqual(startingCleanliness + 12);
+            expect(testHospital.cleanliness).toBe(startingCleanliness + 10);
         });
     });
 });

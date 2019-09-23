@@ -1,12 +1,12 @@
 const input = require("readline-sync");
 
-//const Doctor = require("./src/Doctor");
+const Doctor = require("./src/Doctor");
 const Hospital = require("./src/Hospital");
 const Janitor = require("./src/Janitor");
-//const Nurse = require("./src/Nurse");
+const Nurse = require("./src/Nurse");
 const Patient = require("./src/Patient");
 const Receptionist = require("./src/Receptionist");
-// const Surgeon = require("./src/Surgeon");
+const Surgeon = require("./src/Surgeon");
 const VampireJanitor = require("./src/VampireJanitor");
 
 const HighStreetHospital = new Hospital();
@@ -87,7 +87,7 @@ while (gameRunning === true){
 function menuSelectUnassignedPatient(){
     let selectionCount = 0;
 
-    HighStreetHospital.Patients.forEach((Patient) => {
+    HighStreetHospital.Patients.forEach(Patient => {
         console.log(`${selectionCount + 1} )) ${Patient.name}`)
         selectionCount++;
     })
@@ -121,7 +121,7 @@ function menuSelectFromJanitors(){
 function menuSelectFromNurses(){
     let selectionCount = 0;
     console.log("Nurse Options:")
-    HighStreetHospital.Nurses.forEach((Nurse) => {
+    HighStreetHospital.Nurses.forEach(Nurse => {
         console.log(`${selectionCount + 1} )) ${Nurse.name}`)
         selectionCount++;
     })
@@ -140,11 +140,11 @@ function menuSelectFromNurses(){
 function tick(tickAmount){
     const tickTime = tickAmount;
     HighStreetHospital.tick(tickTime);
-    HighStreetHospital.Patients.forEach((Patient) => {
+    HighStreetHospital.Patients.forEach(Patient => {
         Patient.tick(tickTime);
     })
-    HighStreetHospital.Nurses.forEach((Nurse) => {
-        Nurse.Patients.forEach((Patient) => {
+    HighStreetHospital.Nurses.forEach(Nurse => {
+        HighStreetHospital.Patients.forEach(Patient => {
             Patient.tick(tickTime);
         })
     })
