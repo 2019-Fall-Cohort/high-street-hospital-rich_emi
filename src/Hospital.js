@@ -43,7 +43,7 @@ class Hospital {
         const Janitor2 = new VampireJanitor();
             Janitor2.name = "Pyro";
             Janitor2.iDNumber = "J002";
-        this.Janitors.push(Janitor1,Janitor2);
+        this.Janitors.push(Janitor1, Janitor2);
 
         // Preset Nurse(s)
         const Nurse1 = new Nurse();
@@ -84,14 +84,21 @@ class Hospital {
     countJanitorsSweeping() {
         let janitorsSweeping = 0;
         this.Janitors.forEach((Janitor) => {
-            if(Janitor.isSweeping = true){
+            if(Janitor.isSweeping === true){
                 janitorsSweeping += 1;
             }       
         }) 
         return janitorsSweeping;   
     }
     getAllEmployees() {
+        console.log("-------------------------------------------------------")
+        console.log("-------------------------------------------------------")
+
+        console.log("")
         console.log("Here is a list of all employees at High Street Hospital:")
+        console.log("")
+        console.log("")
+        console.log("-----------------------------------------------------------------")
         this.Doctors.forEach((Doctor) => {
             console.log(`iDNumber: ${Doctor.iDNumber} || ${Doctor.position} ${Doctor.name} || salary: ${Doctor.salary}`)
         })
@@ -107,13 +114,29 @@ class Hospital {
         this.Surgeons.forEach((Surgeon) => {
             console.log(`iDNumber: ${Surgeon.iDNumber} || ${Surgeon.position} ${Surgeon.name} || salary: ${Surgeon.salary} || sweeping: ${Surgeon.isOperating}`)
         })
-
+        console.log("-----------------------------------------------------------------")
     }
+  
+    getJanitors() {
+        this.Janitors.forEach((Janitor) => {
+            console.log(`${Janitor.name} currently sweeping: ${Janitor.isSweeping}`)
+        })
+    }
+  
+    getPatients() {
+        this.Patients.forEach((Patient) => {
+            console.log(`${Patient.name} || Health Level: ${Patient.healthLevel} || Blood Level: ${Patient.bloodLevel}`)
+        })
+    }
+  
     tick(tickAmount=1){
         let janitorsSweeping = this.countJanitorsSweeping();
         for(let counter = 0; counter < tickAmount; counter++){
-            this.cleanliness -= 2;
+            this.cleanliness -= 3;
             this.cleanliness += (janitorsSweeping * 4);
+            if(this.cleanliness > 100){
+                this.cleanliness = 100;
+            }
         }
 
     }

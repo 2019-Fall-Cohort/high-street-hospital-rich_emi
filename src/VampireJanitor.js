@@ -4,6 +4,7 @@ class VampireJanitor extends Janitor {
 
     constructor(position = `Vampire Janitor`, name, iDNumber, salary, isSweeping = false,){
         super(position, name, iDNumber, salary, isSweeping)
+
             this.canDrawBlood = true;
 
     }
