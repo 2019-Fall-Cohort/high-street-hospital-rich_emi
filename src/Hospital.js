@@ -1,10 +1,9 @@
-//const Doctor = require("./src/Doctor");
-
+const Doctor = require("./Doctor");
 const Janitor = require("./Janitor");
-//const Nurse = require("./Nurse");
+const Nurse = require("./Nurse");
 const Patient = require("./Patient");
 const Receptionist = require("./Receptionist");
-// const Surgeon = require("./Surgeon");
+const Surgeon = require("./Surgeon");
 const VampireJanitor = require("./VampireJanitor");
 
 const MAX_CLEANLINESS = 100;
@@ -26,25 +25,49 @@ class Hospital {
     startHospital() {
 
         // Preset Doctor(s)
-        // const Doctor1 = new Doctor();
-        //     Doctor1.name = "Joshua";
-        //     Doctor1.id = "D001";
-        // this.Doctors.push(Doctor1);    
+        const Doctor1 = new Doctor();
+            Doctor1.name = "Joshua";
+            Doctor1.iDNumber = "D001";
+        const Doctor2 = new Doctor();
+            Doctor2.name = "Janelle";
+            Doctor2.iDNumber = "D002";
+        const Doctor3 = new Doctor();
+            Doctor3.name = "Tapley";
+            Doctor3.iDNumber = "D003";
+        this.Doctors.push(Doctor1, Doctor2, Doctor3);    
 
         // Preset Janitor(s)
         const Janitor1 = new Janitor();
             Janitor1.name = "Hibbins";
-            Janitor1.id = "J001";
+            Janitor1.iDNumber = "J001";
         const Janitor2 = new VampireJanitor();
             Janitor2.name = "Pyro";
-            Janitor2.id = "J002";
+            Janitor2.iDNumber = "J002";
         this.Janitors.push(Janitor1,Janitor2);
+
+        // Preset Nurse(s)
+        const Nurse1 = new Nurse();
+            Nurse1.name = "Emmanuel";
+            Nurse1.iDNumber = "N001";
+        const Nurse2 = new Nurse();
+            Nurse2.name = "Brad";
+            Nurse2.iDNumber = "N002";
+        this.Nurses.push(Nurse1, Nurse2);
 
         // Preset Receptionist(s)
         const Receptionist1 = new Receptionist();
             Receptionist1.name = "Candii";
-            Receptionist1.id = "R001";
+            Receptionist1.iDNumber = "R001";
         this.Receptionists.push(Receptionist1);
+
+        //Preset Surgeon(s)
+        const Surgeon1 = new Surgeon();
+            Surgeon1.name = "Marceau";
+            Surgeon1.iDNumber = "S001";
+        const Surgeon2 = new Surgeon();
+            Surgeon2.name = "Henson";
+            Surgeon2.iDNumber = "S002";
+        this.Surgeons.push(Surgeon1, Surgeon2)
 
         // Preset Patients
         const Patient1 = new Patient("Blinky");
@@ -72,19 +95,19 @@ class Hospital {
     getAllEmployees() {
         console.log("Here is a list of all employees at High Street Hospital:")
         this.Doctors.forEach((Doctor) => {
-            console.log(`ID: ${Doctor.id} || ${Doctor.position} ${Doctor.name} || salary: ${Doctor.salary}`)
+            console.log(`iDNumber: ${Doctor.iDNumber} || ${Doctor.position} ${Doctor.name} || salary: ${Doctor.salary}`)
         })
         this.Janitors.forEach((Janitor) => {
-            console.log(`ID: ${Janitor.id} || ${Janitor.position} ${Janitor.name} || salary: ${Janitor.salary} || sweeping: ${Janitor.isSweeping}`)
+            console.log(`iDNumber: ${Janitor.iDNumber} || ${Janitor.position} ${Janitor.name} || salary: ${Janitor.salary} || sweeping: ${Janitor.isSweeping}`)
         })
         this.Receptionists.forEach((Receptionist) => {
-            console.log(`ID: ${Receptionist.id} || ${Receptionist.position} ${Receptionist.name} || salary: ${Receptionist.salary} || on Phone: ${Receptionist.isOnPhone}`)
+            console.log(`iDNumber: ${Receptionist.iDNumber} || ${Receptionist.position} ${Receptionist.name} || salary: ${Receptionist.salary} || on Phone: ${Receptionist.isOnPhone}`)
         })
         this.Nurses.forEach((Nurse) => {
-            console.log(`ID: ${Nurse.id} || ${Nurse.position} ${Nurse.name} || salary: ${Nurse.salary} || patients: ${Nurse.getPatients()}`)
+            console.log(`iDNumber: ${Nurse.iDNumber} || ${Nurse.position} ${Nurse.name} || salary: ${Nurse.salary} || patients: ${Nurse.getPatients()}`)
         })
         this.Surgeons.forEach((Surgeon) => {
-            console.log(`ID: ${Surgeon.id} || ${Surgeon.position} ${Surgeon.name} || salary: ${Surgeon.salary} || sweeping: ${Surgeon.isInSurgery}`)
+            console.log(`iDNumber: ${Surgeon.iDNumber} || ${Surgeon.position} ${Surgeon.name} || salary: ${Surgeon.salary} || sweeping: ${Surgeon.isInSurgery}`)
         })
 
 
