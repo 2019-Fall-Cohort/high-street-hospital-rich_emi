@@ -36,7 +36,10 @@ while (gameRunning === true){
     let mainMenuInput = input.questionInt("Enter what you'd like to do: ")
 
     switch (mainMenuInput) {
-        case 1: HighStreetHospital.getAllEmployees();
+        case 1: 
+            console.log("")
+            console.log("")
+            HighStreetHospital.getAllEmployees();
             tick();
             break;
         case 2: HighStreetHospital.getPatients();
@@ -51,13 +54,11 @@ while (gameRunning === true){
             console.log("Who would you like to start/stop sweeping?")
             console.log("-------------------------------------------------------")
             let selectJanitor = menuSelectFromJanitors();
-            console.log(selectJanitor);
                 if (HighStreetHospital.Janitors[selectJanitor].isSweeping === true){
                     HighStreetHospital.Janitors[selectJanitor].stopSweeping();
                 }   else {
                     HighStreetHospital.Janitors[selectJanitor].startSweeping();
                 }
-            console.log(HighStreetHospital.Janitors);    
 
             tick();
             break;
@@ -65,14 +66,9 @@ while (gameRunning === true){
         default: console.log(`${mainMenuInput} is not an option.`)
             break;
     }    
-        console.log("")
-        console.log("")
-        console.log("")
-        console.log("")
+    console.log("")
+    console.log("")
     
-
-
-
 }
 
 function menuSelectUnassignedPatient(){
@@ -130,7 +126,6 @@ function menuSelectFromNurses(){
             return 0;
         
 }
-
 function tick(tickAmount){
     const tickTime = tickAmount;
     HighStreetHospital.tick(tickTime);

@@ -70,14 +70,21 @@ class Hospital {
     countJanitorsSweeping() {
         let janitorsSweeping = 0;
         this.Janitors.forEach((Janitor) => {
-            if(Janitor.isSweeping = true){
+            if(Janitor.isSweeping === true){
                 janitorsSweeping += 1;
             }       
         }) 
         return janitorsSweeping;   
     }
     getAllEmployees() {
+        console.log("-------------------------------------------------------")
+        console.log("-------------------------------------------------------")
+
+        console.log("")
         console.log("Here is a list of all employees at High Street Hospital:")
+        console.log("")
+        console.log("")
+        console.log("-----------------------------------------------------------------")
         this.Doctors.forEach((Doctor) => {
             console.log(`ID: ${Doctor.id} || ${Doctor.position} ${Doctor.name} || salary: ${Doctor.salary}`)
         })
@@ -93,7 +100,7 @@ class Hospital {
         this.Surgeons.forEach((Surgeon) => {
             console.log(`ID: ${Surgeon.id} || ${Surgeon.position} ${Surgeon.name} || salary: ${Surgeon.salary} || sweeping: ${Surgeon.isInSurgery}`)
         })
-
+        console.log("-----------------------------------------------------------------")
 
     }
     getJanitors() {
