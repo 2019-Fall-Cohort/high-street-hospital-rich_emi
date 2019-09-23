@@ -3,7 +3,7 @@ const HEALTH_LEVEL = 10;
 
 class Patient {
 
-        constructor(name) {
+        constructor(name = 'Digby') {
 
         this.name = name;
 
